@@ -295,17 +295,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: #f9f9f9;
             font-family: 'Inter', sans-serif;
-            max-width: 600px; /* Limit the width for better centering */
+            max-width: 600px;
         }
 
         .mobirise-custom-services h2, 
         .mobirise-custom-services h3, 
         .mobirise-custom-services h4 {
-            font-size: 1.5em; /* Increased size */
+            font-size: 1.5em;
         }
 
         .mobirise-custom-services .total-cost {
-            font-size: 1.8em; /* Increased size */
+            font-size: 1.8em;
             margin-top: 20px;
             color: green;
         }
@@ -313,7 +313,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .mobirise-custom-services .btn-custom {
             background-color: #25D366;
             color: white;
-            font-size: 1.1em; /* Increased size */
+            font-size: 1.1em;
         }
 
         .mobirise-custom-services .btn-custom:hover {
@@ -323,7 +323,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .mobirise-custom-services .offer-note,
         .mobirise-custom-services .service-note {
             color: red;
-            font-size: 1em; /* Increased size */
+            font-size: 1em;
         }
 
         .mobirise-custom-services .service-icon {
@@ -333,19 +333,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         .mobirise-custom-services .form-check-label {
-            font-size: 1.1em; /* Increased size */
+            font-size: 1.1em;
         }
     </style>
 
     <h3>
-                    <strong>Pricing</strong>
-                </h3>
+        <b>Pricing</b>
+    </h3>
 
     <!-- Choose an Option Section -->
     <h3 class="mt-4">Choose an Option</h3>
     <div class="form-group">
         <label>
-            <input type="radio" name="service-option" id="limited-offer" checked="">
+            <input type="radio" name="service-option" id="limited-offer" checked>
             <i class="fas fa-bolt service-icon"></i> Get All Services for ₦200,000 (Limited Time Offer)
         </label>
         <label>
@@ -438,7 +438,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </form>
 
     <div class="mobirise-custom-services total-cost">
-        Total Cost: ₦<span id="total">0</span>
+        Total Cost: ₦<span id="total">200,000</span>
     </div>
 
     <button class="btn btn-custom btn-block mt-3" onclick="sendMessage()">Send to WhatsApp</button>
@@ -451,13 +451,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const offerNote = document.querySelector('.mobirise-custom-services .offer-note');
         const serviceNote = document.querySelector('.mobirise-custom-services .service-note');
 
+        // Set the default total to 200,000 since the limited-time offer is preselected
+        totalElement.textContent = '200,000';
+
         // Listen for changes in the service option selection
         offerCheckbox.addEventListener('change', handleServiceOptionSelection);
         individualServicesCheckbox.addEventListener('change', handleServiceOptionSelection);
 
         function handleServiceOptionSelection() {
             if (offerCheckbox.checked) {
-                // If offer is selected, disable all individual checkboxes and set total cost to 200,000
                 checkboxes.forEach(checkbox => {
                     checkbox.checked = false;
                     checkbox.disabled = true;
@@ -466,7 +468,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 serviceNote.style.display = 'none';
                 offerNote.style.display = 'block';
             } else {
-                // Re-enable checkboxes if Individual Services is selected
                 checkboxes.forEach(checkbox => {
                     checkbox.disabled = false;
                 });
@@ -495,20 +496,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             let selectedServices = [];
             checkboxes.forEach(checkbox => {
                 if (checkbox.checked) {
-                    selectedServices.push(checkbox.nextElementSibling.textContent.trim());
+                    selectedServices.push(checkbox.parentNode.textContent.trim());
                 }
             });
-            const total = parseFloat(totalElement.textContent);
-            const message = `Selected Services:\n\n` +
-                            selectedServices.join('\n') + `\n\nTotal: ₦${total.toFixed(2)}\n` +
-                            `Please provide further details.`;
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
+
+            let message = 'Hello, I am interested in the following services:\n\n';
+
+            if (offerCheckbox.checked) {
+                message += 'Get All Services for ₦200,000 (Limited Time Offer)';
+            } else if (selectedServices.length > 0) {
+                message += selectedServices.join('\n');
+                message += `\n\nTotal Cost: ₦${totalElement.textContent}`;
+            } else {
+                message += 'No services selected';
+            }
+
+            let whatsappUrl = `https://wa.me/2348088883958?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </div>
-
-
 
 </section>
 
