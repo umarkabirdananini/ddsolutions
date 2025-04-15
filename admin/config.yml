@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: umarkabirdananini/ddsolutions
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Site Pages"
+    files:
+      - label: "Homepage"
+        name: "index"
+        file: "index.html"
+        fields:
+          - { label: "Welcome Text", name: "welcome", widget: "string", hint: "Edit welcome text manually from source" }
