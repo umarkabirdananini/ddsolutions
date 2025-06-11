@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Family Tree of Alhaji Garba Dan Anini</title>
   <style>
-    /* Base styles */
     body {
       font-family: serif;
       margin: 2rem;
@@ -14,56 +13,58 @@
       text-align: center;
       margin-bottom: 1rem;
     }
-    ul.tree, ul.tree ul {
-      list-style: none;
+    /* Numbered tree */
+    ol.tree, ol.tree ol {
+      list-style: decimal;
       padding-left: 1.5em;
       position: relative;
     }
-    ul.tree:before {
+    /* Vertical connector line */
+    ol.tree:before {
       content: '';
       display: block;
-      width: 0;
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 0.75em;
-      border-left: 1px solid #000;
+      left: 1em;
+      border-left: 2px solid #1a73e8;
     }
-    ul.tree li {
+    /* Horizontal connector */
+    ol.tree li {
       margin: 0.5em 0;
       padding-left: 1em;
       position: relative;
     }
-    ul.tree li:before {
+    ol.tree li:before {
       content: '';
       display: block;
-      width: 0.75em;
+      width: 1em;
       height: 0;
-      border-top: 1px solid #000;
+      border-top: 1px solid #1a73e8;
       position: absolute;
       top: 1em;
       left: 0;
     }
-
-    /* Print-specific adjustments */
+    /* Parent styling */
+    .parent {
+      font-weight: bold;
+      color: #1a73e8;
+    }
+    /* Avoid breaks inside items */
     @media print {
-      body {
-        margin: 0.5in;
-      }
-      ul.tree li {
-        page-break-inside: avoid;
-      }
+      body { margin: 0.5in; }
+      ol.tree li { page-break-inside: avoid; }
     }
   </style>
 </head>
 <body>
 
   <h1>Family Tree of Alhaji Garba Dan Anini</h1>
-  <ul class="tree">
-    <li>Alhaji Garba Dan Anini
-      <ul>
-        <li>Hajiya Dije Dan Anini
-          <ul>
+  <ol class="tree">
+    <li><span class="parent">Alhaji Garba Dan Anini (19)</span>
+      <ol>
+        <li><span class="parent">Hajiya Dije Dan Anini (10)</span>
+          <ol>
             <li>Sirajo Malami D/Haja</li>
             <li>Nafiu Malami D/Haja</li>
             <li>Awaisu Malami D/Haja</li>
@@ -74,10 +75,10 @@
             <li>Mubarak Malami D/Haja</li>
             <li>Aisha Malami D/Haja</li>
             <li>Maharazu Malami D/Haja</li>
-          </ul>
+          </ol>
         </li>
-        <li>Hajiya Niima Dan Anini
-          <ul>
+        <li><span class="parent">Hajiya Niima Dan Anini (7)</span>
+          <ol>
             <li>Muntari Mustafa</li>
             <li>Dahiru Mustafa</li>
             <li>Abubakar Mustafa</li>
@@ -85,10 +86,10 @@
             <li>Zarau Mustafa</li>
             <li>Hasiya Mustafa</li>
             <li>Zainab Mustafa</li>
-          </ul>
+          </ol>
         </li>
-        <li>Kabir Dan Anini
-          <ul>
+        <li><span class="parent">Kabir Dan Anini (14)</span>
+          <ol>
             <li>Farida</li>
             <li>Ahmad</li>
             <li>Hafsat</li>
@@ -103,10 +104,10 @@
             <li>Buhari</li>
             <li>Waleed (Kabir)</li>
             <li>Munawawara (Khadijah)</li>
-          </ul>
+          </ol>
         </li>
-        <li>Hajiya Umaima Dan Anini
-          <ul>
+        <li><span class="parent">Hajiya Umaima Dan Anini (7)</span>
+          <ol>
             <li>Bara'atu Yusuf</li>
             <li>Aisha</li>
             <li>Hadiza</li>
@@ -114,10 +115,10 @@
             <li>Fatima</li>
             <li>Balkisu</li>
             <li>Abubakar</li>
-          </ul>
+          </ol>
         </li>
-        <li>Hajiya Balki Dan Anini
-          <ul>
+        <li><span class="parent">Hajiya Balki Dan Anini (13)</span>
+          <ol>
             <li>Hadiza</li>
             <li>Awwal</li>
             <li>Shafa'atu</li>
@@ -131,20 +132,20 @@
             <li>Husna</li>
             <li>Hafsat</li>
             <li>Musa</li>
-          </ul>
+          </ol>
         </li>
-        <li>Hajiya Hindatu Dan Anini (Mama Hundi)
-          <ul>
+        <li><span class="parent">Hajiya Hindatu Dan Anini (Mama Hundi) (6)</span>
+          <ol>
             <li>Sumaiyya Hayatu</li>
             <li>Jabir</li>
             <li>Shama'u</li>
             <li>Fatima</li>
             <li>Abdul Basi</li>
             <li>Umaru</li>
-          </ul>
+          </ol>
         </li>
-        <li>Baba Malami (Usman Dan Anini)
-          <ul>
+        <li><span class="parent">Baba Malami (Usman Dan Anini) (9)</span>
+          <ol>
             <li>Sadiya Usman</li>
             <li>Aisha Usman</li>
             <li>Umaru Usman</li>
@@ -154,10 +155,10 @@
             <li>Usman Usman</li>
             <li>Fatima Usman</li>
             <li>Zainab Usman</li>
-          </ul>
+          </ol>
         </li>
-        <li>Hajiya Inno Dan Anini
-          <ul>
+        <li><span class="parent">Hajiya Inno Dan Anini (7)</span>
+          <ol>
             <li>Jamila Ibrahim Shuni</li>
             <li>Suwaiba</li>
             <li>Bello</li>
@@ -165,10 +166,10 @@
             <li>Amina</li>
             <li>Abubakar</li>
             <li>Hindu</li>
-          </ul>
+          </ol>
         </li>
-        <li>Baba Cika (Chika Dan Anini)
-          <ul>
+        <li><span class="parent">Baba Cika (Chika Dan Anini) (9)</span>
+          <ol>
             <li>Saratu</li>
             <li>Hasiya</li>
             <li>Muhammad</li>
@@ -178,10 +179,10 @@
             <li>Rukayya</li>
             <li>Aminu</li>
             <li>Hadiza</li>
-          </ul>
+          </ol>
         </li>
-        <li>Hajiya Hafsatu Tambuwal (Mama Hafsatu)
-          <ul>
+        <li><span class="parent">Hajiya Hafsatu Tambuwal (Mama Hafsatu) (12)</span>
+          <ol>
             <li>Ubaida Bello</li>
             <li>Hadiza Bello</li>
             <li>Usman Bello</li>
@@ -194,21 +195,21 @@
             <li>Yusuf Bello</li>
             <li>Firdausi Bello</li>
             <li>Abubakar Bello</li>
-          </ul>
+          </ol>
         </li>
         <li>Margayi Aliyu</li>
         <li>Margayi Nura</li>
-        <li>Margayiya Suwaiba (Suwaiba Dan Anini)
-          <ul>
+        <li><span class="parent">Margayiya Suwaiba (Suwaiba Dan Anini) (5)</span>
+          <ol>
             <li>Abubakar Bashiru Maranawa</li>
             <li>Mohammed Bashiru</li>
             <li>Sumaiya Bashiru</li>
             <li>Murja Bashiru</li>
             <li>Kamalu</li>
-          </ul>
+          </ol>
         </li>
-        <li>Baba Bashar (Bashar Dan Anini)
-          <ul>
+        <li><span class="parent">Baba Bashar (Bashar Dan Anini) (7)</span>
+          <ol>
             <li>Abubakar</li>
             <li>Nura</li>
             <li>Bilal</li>
@@ -216,27 +217,34 @@
             <li>Hafsat Bashar</li>
             <li>Muhammad Bashar</li>
             <li>Fatima Bashar</li>
-          </ul>
+          </ol>
         </li>
         <li>Anti Mamu (Zainab)</li>
-        <li>Saudatu Dan Anini (Anti Saudi)
-          <ul>
+        <li><span class="parent">Saudatu Dan Anini (Anti Saudi) (2)</span>
+          <ol>
             <li>Aisha Haliru Maccido</li>
             <li>Fatima Haliru Maccido</li>
-          </ul>
+          </ol>
         </li>
-        <li>Baba Yahaya (Yahaya Dan Anini)
-          <ul>
+        <li><span class="parent">Baba Yahaya (Yahaya Dan Anini) (3)</span>
+          <ol>
             <li>Fatima</li>
             <li>Hawau Yahaya</li>
             <li>Aisha Yahaya</li>
-          </ul>
+          </ol>
         </li>
-        <li>Anti Sakina</li>
+        <li><span class="parent">Anti Sakina (Sakina Dan Anini) (4)</span>
+          <ol>
+            <li>Aisha Suleiman</li>
+            <li>Abubakar</li>
+            <li>Hadiza</li>
+            <li>Hanatu</li>
+          </ol>
+        </li>
         <li>Baba Hamza</li>
-      </ul>
+      </ol>
     </li>
-  </ul>
+  </ol>
 
 </body>
 </html>
